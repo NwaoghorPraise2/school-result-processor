@@ -7,6 +7,9 @@ app.get('/', (req:Request, res:Response) => {
     res.send("Testing");
 });
 
+app.get('/test', (req:Request, res:Response) => {
+    res.send("Testing");
+});
 
 app.listen(port, () => {
     console.log(`Connected`);
