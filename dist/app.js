@@ -7,7 +7,10 @@ const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const port = 3000;
 app.get('/', (req, res) => {
-    res.send("hello world");
+    res.send("Testing");
+});
+app.get('/test', (req, res) => {
+    res.send("Testing");
 });
 app.listen(port, () => {
     console.log(`Connected`);
