@@ -1,4 +1,13 @@
 services:
+postgres:
+  image: postgres:16-alpine
+  ports:
+    -5432:5432
+  environment:
+    POSTGRES_DB: sms_result_processor_dev
+    POSTGRES_HOST_AUTH_METHOD: trust
+
+
   backend: 
     build: .
     ports:
@@ -9,6 +18,9 @@ services:
       - /usr/src/app/.pnpm-store
       - /usr/src/app/node_modules
     command: pnpm start:docker
+    depends_on:
+      - postgres
     environment:
+      DATABASE_URL: postgres://postgres@postgres/sms_result_processor_dev
       PORT: 4000
 
