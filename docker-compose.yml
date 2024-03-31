@@ -10,5 +10,5 @@ services:
       - /usr/src/app/node_modules
     command: pnpm start:docker
     environment:
-      PORT: 5000
+      PORT: 4000
 
