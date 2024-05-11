@@ -1,12 +1,11 @@
 services:
-postgres:
-  image: postgres:16-alpine
-  ports:
-    -5432:5432
-  environment:
-    POSTGRES_DB: sms_result_processor_dev
-    POSTGRES_HOST_AUTH_METHOD: trust
-
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: sms_result_processor_dev
+      POSTGRES_HOST_AUTH_METHOD: trust
 
   backend: 
     build: .
@@ -23,4 +22,3 @@ postgres:
     environment:
       DATABASE_URL: postgres://postgres@postgres/sms_result_processor_dev
       PORT: 4000
-
