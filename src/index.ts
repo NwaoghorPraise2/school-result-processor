@@ -1,11 +1,16 @@
-import app from '../app';
+import express, {Application, Response, Request} from 'express';
 import morgan from 'morgan';
+
+const app: Application = express();
+
 
 app.use(morgan('dev'));
 
 app.get('/', (req: Request, res: Response) => {
-
-    res.json({message: "Hi"});
+    res.json({
+        statusCode: 200,
+        message: "Good"
+    })
 });
 
 const port: number = Number(process.env.PORT || 3000);
