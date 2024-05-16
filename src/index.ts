@@ -1,7 +1,6 @@
-import express, {Application, Response, Request} from 'express';
+import app from '../app';
 import morgan from 'morgan';
 
-const app: Application = express();
 app.use(morgan('dev'));
 
 app.get('/', (req: Request, res: Response) => {
