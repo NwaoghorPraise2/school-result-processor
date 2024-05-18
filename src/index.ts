@@ -17,4 +17,5 @@ app.get('/', (req: Request, res: Response) => {
 const port: number = Number(process.env.PORT || 3000);
 app.listen(port, '0.0.0.0', () => {
     console.log(`Listening on http://localhost:${port}`);
+    console.log(process.env.DATABASE_URL);
 });
