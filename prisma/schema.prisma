@@ -20,7 +20,7 @@ model Post {
   content     String? 
   publishedAt DateTime?
   createdAt   DateTime @default(now())
-  updateAt    DateTime @updatedAt
+  updatedAt    DateTime @updatedAt
 
   @@index([publishedAt])
   @@map("posts")
