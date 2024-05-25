@@ -1,15 +1,21 @@
 import express, {Application, Response, Request} from 'express';
 import morgan from 'morgan';
+import db from './config/db';
 
 const app: Application = express();
 
 
 app.use(morgan('dev'));
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', async (req: Request, res: Response) => {
+
+    const posts = await db.post.findMany({where: { publishedAt: {not: null}}})
     res.json({
         statusCode: 200,
-        message: "Good"
+        message: "Good",
+        data: {
+            posts
+        }
     })
 });
 
